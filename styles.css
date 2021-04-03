@@ -29,11 +29,15 @@
 }
 
 .menu__item {
-    padding: 0 7px;
+    position: relative;
+    margin-right: 26px;
+    color: #000;
+    text-decoration: none;
+    transition: opacity 0.5s;
 }
 
 .menu__item:last-child {
-    padding-right: 0;
+    margin-right: 0;
 }
 
 .main-content__title {
@@ -44,4 +48,25 @@
 .main-content__description, .main-content__button {
     font-family: Roboto;
     font-weight: 500;
+}
+
+.menu__item::after {
+    position: absolute;
+    display: block;
+    content: '';
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #0056EC;
+    opacity: 0;
+    transition: opacity 0.5s, width 0.5s;
+}
+
+.menu__item:hover {
+    opacity: 0.5;
+}
+
+.menu__item:hover::after, .menu__item_active::after {
+    opacity: 1;
+    width: 100%;
 }
